@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/angulartics/angulartics2/badge.svg?branch=master)](https://coveralls.io/github/angulartics/angulartics?branch=master)
 
 [![MIT license][license-image]][license-url]
-[![Gitter Chat](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/angulartics/angulartics)
+[![Gitter Chat](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/angulartics/angulartics2)
 
 Vendor-agnostic analytics for Angular applications. [angulartics.github.io](http://angulartics.github.io "Go to the website")
 
