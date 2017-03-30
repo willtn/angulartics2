@@ -1,9 +1,9 @@
 # angulartics
 
 [![NPM version][npm-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-downloads-url]
-[![devDependency Status](https://david-dm.org/angulartics/angulartics2/dev-status.svg)](https://david-dm.org/angulartics/angulartics#info=devDependencies)
-[![Build Status](https://img.shields.io/travis/angulartics/angulartics2/master.svg?style=flat)](https://travis-ci.org/angulartics/angulartics)
-[![Coverage Status](https://coveralls.io/repos/github/angulartics/angulartics2/badge.svg?branch=master)](https://coveralls.io/github/angulartics/angulartics?branch=master)
+[![devDependency Status](https://david-dm.org/angulartics/angulartics2/dev-status.svg)](https://david-dm.org/angulartics/angulartics2#info=devDependencies)
+[![Build Status](https://img.shields.io/travis/angulartics/angulartics2/master.svg?style=flat)](https://travis-ci.org/angulartics/angulartics2)
+[![Coverage Status](https://coveralls.io/repos/github/angulartics/angulartics2/badge.svg?branch=master)](https://coveralls.io/github/angulartics/angulartics2?branch=master)
 
 [![MIT license][license-image]][license-url]
 [![Gitter Chat](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/angulartics/angulartics2)
