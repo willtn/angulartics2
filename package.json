@@ -127,5 +127,7 @@
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "private": true,
+  "version": "2.4.0-tn.0"
 }
