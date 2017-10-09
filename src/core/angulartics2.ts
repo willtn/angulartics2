@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { Location } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
+import { TransitionService, UrlService } from '@uirouter/angular';
 import 'rxjs/add/operator/filter';
 
 @Injectable()
@@ -66,11 +67,17 @@ export class Angulartics2 {
    */
   public userTimings: ReplaySubject<any> = new ReplaySubject(10);
 
-  constructor(location: Location, router: Router) {
-    this.trackLocation(location, router);
+  constructor(location: Location, @Optional() router: Router, @Optional() transitionService: TransitionService, @Optional() urlService: UrlService) {
+    if (router) {
+      this.trackLocationWithRouter(location, router);
+    }
+
+    if (transitionService && urlService) {
+      this.trackLocationWithTransition(location, transitionService, urlService);
+    }
   }
 
-  trackLocation(location: Location, router: Router) {
+  trackLocationWithRouter(location: Location, router: Router) {
     router.events
       .filter(event => event instanceof NavigationEnd)
       .subscribe((event: NavigationEnd) => {
@@ -80,10 +87,18 @@ export class Angulartics2 {
       });
   }
 
+  trackLocationWithTransition(location: Location, transitionService: TransitionService, urlService: UrlService) {
+    transitionService.onFinish({}, (transition) => {
+      if (!this.settings.developerMode) {
+        this.trackUrlChange(urlService.path(), location);
+      }
+    })
+  }
+
   virtualPageviews(value: boolean) {
     this.settings.pageTracking.autoTrackVirtualPages = value;
   }
-  excludeRoutes(routes: Array<string|RegExp>) {
+  excludeRoutes(routes: Array<string | RegExp>) {
     this.settings.pageTracking.excludedRoutes = routes;
   }
   firstPageview(value: boolean) {
@@ -95,7 +110,7 @@ export class Angulartics2 {
   developerMode(value: boolean) {
     this.settings.developerMode = value;
   }
-  
+
   protected trackUrlChange(url: string, location: Location) {
     if (!this.settings.developerMode) {
       if (this.settings.pageTracking.autoTrackVirtualPages && !this.matchesExcludedRoute(url)) {
